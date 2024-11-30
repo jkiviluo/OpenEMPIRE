@@ -117,7 +117,8 @@ def run_empire_model(
             )
         check_scenarios_exist_and_copy(run_config)
 
-    generate_tab_files(file_path=workbook_path, tab_file_path=tab_file_path)
+    if empire_config.generate_tab_files:
+        generate_tab_files(file_path=workbook_path, tab_file_path=tab_file_path)
 
     if not test_run:
         run_empire(
