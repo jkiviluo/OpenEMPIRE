@@ -21,7 +21,7 @@ parser.add_argument("-c", "--config-file", help="Path to config file.", default=
 args = parser.parse_args()
 
 ## Read config and setup folders ##
-if args.dataset == "test":
+if args.dataset == "test" and not args.config_file:  # Use testrun config only if no other config is provided
     config = read_config_file(Path("config/testrun.yaml"))
 else:
     config = read_config_file(Path(args.config_file))
