@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import json
+import os
 import logging
 from pathlib import Path
 
@@ -162,7 +163,7 @@ def setup_run_paths(
     version: str,
     empire_config: EmpireConfiguration,
     run_path: Path,
-    empire_path: Path = Path.cwd(),
+    empire_path: Path = Path(os.getcwd()),
 ) -> EmpireRunConfiguration:
     """
     Setup run paths for Empire.

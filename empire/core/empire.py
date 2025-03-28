@@ -42,8 +42,10 @@ def run_empire(name, tab_file_path: Path, result_file_path: Path, scenario_data_
         logger.info("Solver: Gurobi")
     elif solver == "GLPK":
         logger.info("Solver: GLPK")
+    elif solver == "HiGHS":
+    	logger.info("Solver: HiGHS")
     else:
-        sys.exit("ERROR! Invalid solver! Options: CPLEX, Xpress, Gurobi")
+        sys.exit("ERROR! Invalid solver! Options: CPLEX, Xpress, Gurobi, GLPK, HiGHS")
 
     ##########
     ##MODULE##
@@ -889,6 +891,8 @@ def run_empire(name, tab_file_path: Path, result_file_path: Path, scenario_data_
         opt = SolverFactory('gurobi', Verbose=True)
         opt.options["Crossover"]=0
         opt.options["Method"]=2
+    if solver == "HiGHS":
+        opt = SolverFactory('highs', Verbose=True)
     if solver == "GLPK":
         opt = SolverFactory("glpk", Verbose=True)
 

@@ -38,7 +38,7 @@ logger = get_empire_logger(run_config=run_config)
 
 logger.info("Running EMPIRE Model")
 
-client = EmpireInputClient(dataset_path=run_config.dataset_path)
+#client = EmpireInputClient(dataset_path=run_config.dataset_path)
 
 data_managers = [
     # Add input data managers to alter the dataset
